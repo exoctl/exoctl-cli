@@ -1,8 +1,11 @@
-local Requests = require("src.gateways.web.requests")
-local Data = require("src.gateways.web.data")
-
 local App   = {
-    config = nil
+    config = nil,
+    gateways = {
+        web = {
+            Requests = require("src.gateways.web.requests"),
+            Data = require("src.gateways.web.data")
+        }
+    }
 }
 
 App.__index = App
@@ -13,9 +16,9 @@ end
 
 function App:setup(config)
     self.config = config
-    
-    Requests:setup(self.config)
-    Data:setup(self.config, Requests)
+
+    self.gateways.web.Requests:setup(self.config)
+    self.gateways.web.Data:setup(self.config, self.gateways.web.requests)
 end
 
 return App
