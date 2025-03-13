@@ -1,0 +1,26 @@
+{
+    "api": {
+        "addr": "localhost",
+        "port": "8081",
+        "gateways": {
+            "web": {
+                "protocol": "http",
+                "metadata": "/v1/engine/data/metadata"
+            },
+            "websocket": {
+                "protocol": "ws",
+                "analysis": {
+                    "scan": {
+                        "av": {
+                            "clamav": "/v1/engine/analysis/scan/av/clamav"
+                        },
+                        "yara": "/v1/engine/analysis/scan/yara/fast"
+                    }
+                },
+                "parser": {
+                    "elf": "/elf"
+                }
+            }
+        }
+    }
+}
