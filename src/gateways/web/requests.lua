@@ -1,4 +1,4 @@
---local http       = require("http.request")
+local http       = require("http.request")
 
 local Requests   = {
     config = nil,
@@ -28,8 +28,13 @@ function Requests:post(url, content, content_type)
     request.headers:upsert("Content-Type", content_type)
     request:set_body(content)
 
-    local headers = request:go(1)
-    return headers and headers:get(":status") == "200"
+    local headers, stream = request:go(1)
+    if not headers then
+        return nil, "Failed to make request"
+    end
+
+    local body = stream:get_body_as_string()
+    return headers, body
 end
 
 return Requests
