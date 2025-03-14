@@ -16,14 +16,16 @@ $ sudo luarocks-5.4 install --only-deps infinitycli-scm-1.rockspec
 
 ```sh
 $ lua src/infinity-cli.lua -h
-Usage: infinity-cli [-h] [-g <gateway>] [-d <data>] [-j] [-f]
+Usage: infinity-cli [-h] [-g {data:metadata,plugins}] [-d <data>] [-j]
+       [-f]
 
 Infinity Engine CLI
 
 Options:
    -h, --help            Show this help message and exit.
-          -g <gateway>,  specify which gateway you want to use
-   --gateway <gateway>
+          -g {data:metadata,plugins},
+   --gateway {data:metadata,plugins}
+                         specify which gateway you want to use
        -d <data>,        data to be passed to gateway
    --data <data>
    -j, --json            format json data
