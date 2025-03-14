@@ -19,7 +19,7 @@ You can take a more detailed look at the docs on [gitbook](https://maldecs-organ
 ```sh
 $ lua src/infinity-cli.lua -h
 Usage: infinity-cli [-h] [-g {data:metadata,plugins,plugins:plugin}]
-       [-e <endpoint>] [-d <data>] [-j] [-f]
+       [-e <endpoint>] [-d <data>] [-r] [-f]
 
 Infinity Engine CLI
 
@@ -33,7 +33,7 @@ Options:
                          your plugin's endpoint on the engine
        -d <data>,        data to be passed to gateway
    --data <data>
-   -j, --json            format json data
+   -r, --raw-data        bring raw engine data without processing
    -f, --file            specify if 'data' is a file
    
 ```

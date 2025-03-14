@@ -44,7 +44,7 @@ function Data:metadata()
 
     if headers and headers:get(":status") == "200" then
         local response = function()
-            if not self.Args.fields["json"] then
+            if not self.Args.fields["raw_data"] then
                 local json = cjson.decode(body)
                 local result = ""
     

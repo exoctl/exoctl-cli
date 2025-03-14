@@ -30,7 +30,7 @@ function Plugins:_process_response(headers, body, endpoint)
 
     local code = headers and headers:get(":status")
     if code == "200" then
-        if not self.Args.fields["json"] then
+        if not self.Args.fields["raw_data"] then
             local json = cjson.decode(body)
             return "[ " .. (endpoint or "Plugins List") .. " ]\n" .. recursive_json_to_string(json, 1)
         end
