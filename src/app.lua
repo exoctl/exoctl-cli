@@ -19,7 +19,7 @@ end
 
 function App:setup(config)
     if not config then
-        Log:error("[App:setup] Configuration table is required.")
+        Log:error("Configuration table is required.")
     end
 
     self.Config = config
@@ -31,7 +31,7 @@ function App:setup(config)
     end)
 
     if not success then
-        Log:error("[App:setup] Failed to initialize components: " .. err)
+        Log:error("Failed to initialize components: " .. err)
     end
 end
 
