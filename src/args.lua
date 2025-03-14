@@ -11,7 +11,8 @@ function Args:new()
 end
 
 function Args:setup()
-    local parser = argparse("infinity-cli", "Infinity Engine CLI")
+    local parser = argparse():name("infinity-cli"):description("Infinity Engine CLI"):epilog(
+        "For more info, see https://github.com/maldeclabs/infinity-cli")
     parser:option("-g --gateway", "specify which gateway you want to use")
         :choices({ "data:metadata", "plugins", "plugins:plugin" })
     parser:option("-e --endpoint", "your plugin's endpoint on the engine")
