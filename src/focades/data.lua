@@ -49,10 +49,10 @@ function Data:metadata()
                 local result = ""
     
                 for key, value in pairs(json) do
-                    result = result .. key .. " : " .. tostring(value) .. "\n"
+                    result =  result .. key .. " : " .. tostring(value) .. "\n"
                 end
     
-                return result
+                return "[ Metadata ]\n" .. result
             end
             return body
         end

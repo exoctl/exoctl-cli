@@ -8,7 +8,6 @@ local Plugins   = {
 
 Plugins.__index = Plugins
 
-
 function Plugins:new()
     return setmetatable({}, Plugins)
 end
