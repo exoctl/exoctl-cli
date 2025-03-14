@@ -13,6 +13,8 @@ end
 function Args:setup()
     local parser = argparse("infinity-cli", "Infinity Engine CLI")
     parser:option("-g --gateway", "specify which gateway you want to use")
+    parser:option("-d --data", "data to be passed to gateway")
+    parser:option("-j --json", "format json data")
     parser:flag("-f --file", "specify if it is a file")
 
     self.fields = parser:parse()

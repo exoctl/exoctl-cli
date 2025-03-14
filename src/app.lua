@@ -23,8 +23,27 @@ function App:setup(config)
 end
 
 function App:run()
-    print(self.Args.fields["gateway"])
-end
+    if (self.Args.fields["gateway"] == "data:metadata") then
+        local data = function()
+            local d = self.Args.fields["data"]
+            if (self.Args.fields["file"]) then
+                local f = io.open(d, "r")
+                if (f) then
+                    return f:read("*all")
+                else
+                    error("Not possible open file '" .. d .. "'")
+                end
+            end
 
+            return d
+        end
+
+        local headers, body = self.gateways.web.Data:metadata(data())
+
+        if (headers:get(":status") == "200") then
+            print(body)
+        end
+    end
+end
 
 return App
