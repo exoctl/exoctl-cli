@@ -6,10 +6,14 @@ local App = {
     gateways = {
         web = {
             Requests = require("src.gateways.web.requests"),
-            Data = require("src.gateways.web.data")
+            Data = require("src.gateways.web.data"),
+            Plugins = require("src.gateways.web.plugins")
         }
     },
-    focades = { Data = require("src.focades.data") }
+    focades = {
+        Data = require("src.focades.data"),
+        Plugins = require("src.focades.plugins")
+    }
 }
 
 App.__index = App
@@ -24,9 +28,11 @@ function App:setup(config)
     local success, err = pcall(function()
         self.gateways.web.Requests:setup(self.Config)
         self.gateways.web.Data:setup(self.Config, self.gateways.web.Requests)
+        self.gateways.web.Plugins:setup(self.Config, self.gateways.web.Requests)
         self.Args:setup()
-        
+
         self.focades.Data:setup(self.gateways.web.Data, self.Args)
+        self.focades.Plugins:setup(self.gateways.web.Plugins, self.Args)
     end)
 
     if not success then
@@ -41,6 +47,8 @@ function App:run()
 
     if self.Args.fields["gateway"] == "data:metadata" then
         self.focades.Data:metadata()
+    elseif self.Args.fields["gateway"] == "plugins" then
+        self.focades.Plugins:plugins()
     else
         Log:error(string.format("Unknown gateway: '%s'", self.Args.fields["gateway"]))
     end

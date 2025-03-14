@@ -37,4 +37,17 @@ function Requests:post(url, content, content_type)
     return headers, body
 end
 
+function Requests:get(url)
+    local request = http.new_from_uri(self.server .. url)
+    request.headers:upsert(":method", "GET")
+
+    local headers, stream = request:go(1)
+    if not headers then
+        return nil, "Failed to make request"
+    end
+
+    local body = stream:get_body_as_string()
+    return headers, body
+end
+
 return Requests

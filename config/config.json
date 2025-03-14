@@ -5,7 +5,8 @@
         "gateways": {
             "web": {
                 "protocol": "http",
-                "metadata": "/v1/engine/data/metadata"
+                "metadata": "/v1/engine/data/metadata",
+                "plugins": "/v1/engine/plugins"
             },
             "websocket": {
                 "protocol": "ws",
