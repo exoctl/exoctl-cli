@@ -22,7 +22,7 @@ function App:setup(config)
     self.Args:setup()
 end
 
-function App:Run()
+function App:run()
     print(self.Args.fields["gateway"])
 end
 
