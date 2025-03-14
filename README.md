@@ -14,6 +14,8 @@ $ sudo luarocks-5.4 install --only-deps infinitycli-scm-1.rockspec
 
 ## Basic usage
 
+You can take a more detailed look at the docs on [gitbook](https://maldecs-organization.gitbook.io/maldeclabs/getting-started/basic-usage)
+
 ```sh
 $ lua src/infinity-cli.lua -h
 Usage: infinity-cli [-h] [-g {data:metadata,plugins,plugins:plugin}]
