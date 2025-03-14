@@ -1,5 +1,6 @@
 local App   = {
-    config = nil,
+    Config = nil,
+    Args = require("src.args"),
     gateways = {
         web = {
             Requests = require("src.gateways.web.requests"),
@@ -15,10 +16,15 @@ function App:new()
 end
 
 function App:setup(config)
-    self.config = config
-
-    self.gateways.web.Requests:setup(self.config)
-    self.gateways.web.Data:setup(self.config, self.gateways.web.requests)
+    self.Config = config
+    self.gateways.web.Requests:setup(self.Config)
+    self.gateways.web.Data:setup(self.Config, self.gateways.web.Requests)
+    self.Args:setup()
 end
+
+function App:Run()
+    print(self.Args.fields["gateway"])
+end
+
 
 return App
