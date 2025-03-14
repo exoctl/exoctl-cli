@@ -41,6 +41,7 @@ function App:setup(config)
 end
 
 function App:run()
+    self.gateways.web.Plugins:plugin("/engine", "get")
     if not self.Args.fields["gateway"] then
         Log:error("Missing required argument: 'gateway'.")
     end
@@ -49,6 +50,8 @@ function App:run()
         self.focades.Data:metadata()
     elseif self.Args.fields["gateway"] == "plugins" then
         self.focades.Plugins:plugins()
+    elseif self.Args.fields["gateway"] == "plugins:plugin" then
+        self.focades.Plugins:plugin()
     else
         Log:error(string.format("Unknown gateway: '%s'", self.Args.fields["gateway"]))
     end

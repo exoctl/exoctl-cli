@@ -13,10 +13,11 @@ end
 function Args:setup()
     local parser = argparse("infinity-cli", "Infinity Engine CLI")
     parser:option("-g --gateway", "specify which gateway you want to use")
-        :choices({"data:metadata", "plugins"})
+        :choices({ "data:metadata", "plugins", "plugins:plugin" })
+    parser:option("-e --endpoint", "your plugin's endpoint on the engine")
     parser:option("-d --data", "data to be passed to gateway")
     parser:flag("-j --json", "format json data")
-    parser:flag("-f --file", "specify if it is a file")
+    parser:flag("-f --file", "specify if 'data' is a file")
 
     self.fields = parser:parse()
 end
