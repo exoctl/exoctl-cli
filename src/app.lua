@@ -41,7 +41,6 @@ function App:setup(config)
 end
 
 function App:run()
-    self.gateways.web.Plugins:plugin("/engine", "get")
     if not self.Args.fields["gateway"] then
         Log:error("Missing required argument: 'gateway'.")
     end
