@@ -42,9 +42,8 @@ function Plugins:_process_response(headers, body, endpoint)
 end
 
 function Plugins:plugin()
-    local arg = self.Args.fields["endpoint"]
-    local method = arg[1]
-    local endpoint = arg[2]
+    local method = self.Args.fields["method"]
+    local endpoint = self.Args.fields["endpoint"]
     local headers, body = self.Plugins:plugin(endpoint, {
         method = method,
         content_type = "text/plain",
