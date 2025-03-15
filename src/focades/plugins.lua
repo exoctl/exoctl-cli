@@ -43,7 +43,8 @@ end
 
 function Plugins:plugin()
     local arg = self.Args.fields["endpoint"]
-    local method, endpoint = arg:match("([^:]+):([^:]+)")
+    local method = arg[1]
+    local endpoint = arg[2]
     local headers, body = self.Plugins:plugin(endpoint, {
         method = method,
         content_type = "text/plain",

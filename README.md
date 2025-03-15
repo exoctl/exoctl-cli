@@ -19,7 +19,7 @@ You can take a more detailed look at the docs on [gitbook](https://maldecs-organ
 ```sh
 $ lua src/infinity-cli.lua -h
 Usage: infinity-cli [-h] [-g {data:metadata,plugins,plugins:plugin}]
-       [-e <endpoint>] [-d <data>] [-r] [-f]
+       [-e <method> <url>] [-d <data>] [-r] [-f] [-v]
 
 Infinity Engine CLI
 
@@ -27,15 +27,17 @@ Options:
    -h, --help            Show this help message and exit.
           -g {data:metadata,plugins,plugins:plugin},
    --gateway {data:metadata,plugins,plugins:plugin}
-                         specify which gateway you want to use
-           -e <endpoint>,
-   --endpoint <endpoint>
-                         your plugin´s endpoint on the engine
-       -d <data>,        data to be passed to gateway
+                         Specify which gateway you want to use
+           -e <method> <url>,
+   --endpoint <method> <url>
+                         Your plugin´s endpoint on the engine
+       -d <data>,        Data to be passed to gateway
    --data <data>
-   -r, --raw-data        bring raw engine data without processing
-   -f, --file            specify if 'data' is a file
-   
+   -r, --raw-data        Bring raw engine data without processing
+   -f, --file            Specify if 'data' is a file
+   -v, --version         Display the current version of the script
+
+For more info, see https://github.com/maldeclabs/infinity-cli
 ```
 
 You can view the plugins your engine uses
