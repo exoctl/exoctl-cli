@@ -30,7 +30,7 @@ Options:
                          specify which gateway you want to use
            -e <endpoint>,
    --endpoint <endpoint>
-                         your plugin's endpoint on the engine
+                         your plugin´s endpoint on the engine
        -d <data>,        data to be passed to gateway
    --data <data>
    -r, --raw-data        bring raw engine data without processing
