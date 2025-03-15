@@ -14,7 +14,8 @@ function Log:info(content)
 end
 
 function Log:error(content)
-    error(string.format("%s ] %s", self.name, content))
+    print(string.format("%s ] %s", self.name, content))
+    os.exit(1)
 end
 
 function Log:output(content)
