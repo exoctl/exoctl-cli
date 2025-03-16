@@ -40,6 +40,7 @@ function App:setup(config)
     end
 end
 
+
 function App:run()
     if not self.Args.fields["gateway"] then
         Log:error("Missing required argument: 'gateway'.")

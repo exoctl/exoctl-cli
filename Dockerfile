@@ -9,4 +9,4 @@ RUN apt-get update && \
 
 RUN luarocks install --only-deps infinitycli-scm-1.rockspec
 
-CMD ["lua", "/app/src/infinity-cli.lua", "-h"]
+CMD ["lua5.4", "/app/src/infinity-cli.lua", "-h"]
