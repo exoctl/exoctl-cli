@@ -1,6 +1,6 @@
-local http       = require("http.request")
+local http <const>     = require("http.request")
 
-local Requests   = {
+local Requests <const> = {
     config = nil,
     addr = nil,
     port = nil,
@@ -8,7 +8,7 @@ local Requests   = {
     server = nil,
 }
 
-Requests.__index = Requests
+Requests.__index       = Requests
 
 function Requests:new()
     return setmetatable({}, Requests)

@@ -1,7 +1,7 @@
 local Log    = require("src.log")
 local cjson    = require("cjson")
 
-local Data   = {
+local Data  <const>  = {
     Data = nil,
     Args = nil
 }
@@ -20,7 +20,7 @@ end
 
 function Data:metadata()
     local data = function()
-        local d = self.Args.fields["data"]
+        local d <const>  = self.Args.fields["data"]
 
         if not d then
             Log:error("Missing required argument: 'data'.")
@@ -32,7 +32,7 @@ function Data:metadata()
                 Log:error(string.format("Failed to open file '%s': %s", d, err or "Unknown error"))
             end
 
-            local content = f:read("*all")
+            local content <const> = f:read("*all")
             f:close()
             return content
         end

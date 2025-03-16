@@ -1,7 +1,7 @@
 local Log       = require("src.log")
 local cjson     = require("cjson")
 
-local Plugins   = { Plugins = nil, Args = nil }
+local Plugins   <const> = { Plugins = nil, Args = nil }
 Plugins.__index = Plugins
 
 function Plugins:new()
@@ -15,7 +15,7 @@ end
 
 function Plugins:_process_response(headers, body, endpoint)
     local function recursive_json_to_string(json, depth)
-        local result, indent = "", string.rep("  ", depth)
+        local result, indent <const> = "", string.rep("  ", depth)
 
         for key, value in pairs(json) do
             if type(value) == "table" then
@@ -28,10 +28,10 @@ function Plugins:_process_response(headers, body, endpoint)
         return result
     end
 
-    local code = headers and headers:get(":status")
+    local code <const> = headers and headers:get(":status")
     if code == "200" then
         if not self.Args.fields["raw_data"] then
-            local success, json = pcall(cjson.decode, body)
+            local success, json <const> = pcall(cjson.decode, body)
             if success and json then
                 return "[ " .. (endpoint or "Plugins List") .. " ]\n" .. recursive_json_to_string(json, 1)
             end
@@ -42,14 +42,14 @@ function Plugins:_process_response(headers, body, endpoint)
 end
 
 function Plugins:plugin()
-    local method = self.Args.fields["method"]
-    local endpoint = self.Args.fields["endpoint"]
+    local method  <const> = self.Args.fields["method"]
+    local endpoint <const> = self.Args.fields["endpoint"]
     local headers, body = self.Plugins:plugin(endpoint, {
         method = method,
         content_type = "text/plain",
         content = (function()
             if self.Args.fields["data"] then
-                local d = self.Args.fields["data"]
+                local d <const> = self.Args.fields["data"]
 
                 if not d then
                     Log:error("Missing required argument: 'data'.")
@@ -71,7 +71,7 @@ function Plugins:plugin()
         end)()
     })
 
-    local response, err = self:_process_response(headers, body, endpoint)
+    local response, err <const> = self:_process_response(headers, body, endpoint)
     if response then
         Log:output(response)
     else
@@ -80,8 +80,8 @@ function Plugins:plugin()
 end
 
 function Plugins:plugins()
-    local headers, body = self.Plugins:plugins()
-    local response, err = self:_process_response(headers, body, nil)
+    local headers, body <const> = self.Plugins:plugins()
+    local response, err <const> = self:_process_response(headers, body, nil)
 
     if response then
         Log:output(response)

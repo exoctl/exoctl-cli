@@ -1,6 +1,6 @@
-local Log = require("src.log")
+local Log <const> = require("src.log")
 
-local App = {
+local App <const>  = {
     Config = nil,
     Args = require("src.args"),
     gateways = {

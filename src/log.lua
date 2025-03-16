@@ -1,8 +1,8 @@
-local Log   = {
+local Log <const>  = {
     name = "infinity"
 }
 
-Log.__index = Log
+Log.__index        = Log
 
 
 function Log:new()

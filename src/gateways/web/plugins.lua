@@ -1,4 +1,4 @@
-local Plugins   = {
+local Plugins <const>   = {
     config = nil,
     endpoints = { plugins = nil },
     requests = nil

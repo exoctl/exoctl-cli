@@ -1,4 +1,4 @@
-local Data   = {
+local Data  <const> = {
     config = nil,
     endpoints = { metadata = nil },
     requests = nil

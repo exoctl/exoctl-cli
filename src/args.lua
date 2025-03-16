@@ -1,15 +1,15 @@
-local argparse = require("argparse")
-local Log      = require("src.log")
-local Version  = require("src.version")
+local argparse <const> = require("argparse")
+local Log <const>      = require("src.log")
+local Version <const>  = require("src.version")
 
-local Args     = {
+local Args <const>     = {
     fields = nil,
     name = "infinity-cli",
     desc = "Infinity Engine CLI",
     epilog = "For more info, see https://github.com/maldeclabs/infinity-cli"
 }
 
-Args.__index   = Args
+Args.__index           = Args
 
 function Args:new()
     return setmetatable({}, Args)

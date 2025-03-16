@@ -1,5 +1,4 @@
-local cjson    = require("cjson")
-local io = require("io")
+local cjson <const>    = require("cjson")
 
 local Config   = {
     json = nil
@@ -13,7 +12,7 @@ function Config:new()
 end
 
 function Config:setup(file)
-    local f = io.open(file, "r")
+    local f <const> = io.open(file, "r")
     if(f) then
         local payload = f:read("*all")
         if(payload) then
