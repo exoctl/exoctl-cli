@@ -27,7 +27,7 @@ function Data:metadata()
         end
 
         if self.Args.fields["file"] then
-            local f, err = io.open(d, "r")
+            local f, err <const> = io.open(d, "r")
             if not f then
                 Log:error(string.format("Failed to open file '%s': %s", d, err or "Unknown error"))
             end
@@ -40,7 +40,7 @@ function Data:metadata()
         return d
     end
 
-    local headers, body = self.Data:metadata(data())
+    local headers, body <const> = self.Data:metadata(data())
 
     if headers and headers:get(":status") == "200" then
         local response = function()

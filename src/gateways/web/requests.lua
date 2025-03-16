@@ -28,7 +28,7 @@ function Requests:post(url, content, content_type)
     request.headers:upsert("Content-Type", content_type)
     request:set_body(content)
 
-    local headers, stream = request:go(1)
+    local headers, stream <const> = request:go(1)
     if not headers then
         return nil, "Failed to make request"
     end
@@ -41,7 +41,7 @@ function Requests:get(url)
     local request = http.new_from_uri(self.server .. url)
     request.headers:upsert(":method", "GET")
 
-    local headers, stream = request:go(1)
+    local headers, stream <const> = request:go(1)
     if not headers then
         return nil, "Failed to make request"
     end

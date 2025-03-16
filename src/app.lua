@@ -25,7 +25,7 @@ end
 function App:setup(config)
     self.Config = config
 
-    local success, err = pcall(function()
+    local success, err <const> = pcall(function()
         self.gateways.web.Requests:setup(self.Config)
         self.gateways.web.Data:setup(self.Config, self.gateways.web.Requests)
         self.gateways.web.Plugins:setup(self.Config, self.gateways.web.Requests)
@@ -34,7 +34,7 @@ function App:setup(config)
         self.focades.Data:setup(self.gateways.web.Data, self.Args)
         self.focades.Plugins:setup(self.gateways.web.Plugins, self.Args)
     end)
-
+    
     if not success then
         Log:error("Failed to initialize components: " .. err)
     end

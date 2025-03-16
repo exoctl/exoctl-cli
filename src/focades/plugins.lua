@@ -56,7 +56,7 @@ function Plugins:plugin()
                 end
 
                 if self.Args.fields["file"] then
-                    local f, err = io.open(d, "r")
+                    local f, err <const> = io.open(d, "r")
                     if not f then
                         Log:error(string.format("Failed to open file '%s': %s", d, err or "Unknown error"))
                     end
