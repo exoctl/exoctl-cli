@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . /app/
 
 RUN apt-get update && \
-    apt-get install -y lua5.4 luarocks libssl-dev build-essential
+    apt-get install -y lua5.4 liblua5.4-dev luarocks libssl-dev build-essential
 
 RUN luarocks install --only-deps infinitycli-scm-1.rockspec
 
