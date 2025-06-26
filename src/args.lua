@@ -4,9 +4,9 @@ local Version <const>  = require("src.version")
 
 local Args <const>     = {
     fields = nil,
-    name = "infinity-cli",
+    name = "exoctl-cli",
     desc = "Infinity Engine CLI",
-    epilog = "For more info, see https://github.com/maldeclabs/infinity-cli"
+    epilog = "For more info, see https://github.com/exoctl/exoctl-cli"
 }
 
 Args.__index           = Args
