@@ -1,4 +1,4 @@
-package = "infinitycli"
+package = "exoctlcli"
 version = "scm-1"
 
 source = {
