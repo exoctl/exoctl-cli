@@ -1,5 +1,0 @@
-{
-  "rule": "rule Malware { condition: true }",
-  "namespace": "test"
-}
-
