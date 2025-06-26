@@ -1,6 +1,4 @@
-# Infinity-cli
-
-![assets/banner](assets/banner.png)
+# exoctl-cli
 
 An easy way to interact with your engine using our CLI
 
@@ -14,11 +12,9 @@ $ sudo luarocks-5.4 install --only-deps infinitycli-scm-1.rockspec
 
 ## Basic usage
 
-You can take a more detailed look at the docs on [gitbook](https://maldecs-organization.gitbook.io/maldeclabs/getting-started/basic-usage)
-
 ```sh
-$ lua src/infinity-cli.lua -h
-Usage: infinity-cli [-h] [-g {data:metadata,plugins,plugins:plugin}]
+$ lua src/exoctl-cli.lua -h
+Usage: exoctl-cli [-h] [-g {data:metadata,plugins,plugins:plugin}]
        [-m {get,post}] [-e <endpoint>] [-d <data>] [-r] [-f] [-v]
 
 Infinity Engine CLI
@@ -38,15 +34,12 @@ Options:
    -r, --raw-data        Bring raw engine data without processing
    -f, --file            Specify if 'data' is a file
    -v, --version         Display the current version of the script
-
-For more info, see https://github.com/maldeclabs/infinity-cli
-
 ```
 
 You can view the plugins your engine uses
 
 ```sh
-$ lua src/infinity-cli.lua -g plugins
+$ lua src/exoctl-cli.lua -g plugins
 [ Plugins List ]
   lua:
     state_memory : 0x47c2f
@@ -60,7 +53,7 @@ $ lua src/infinity-cli.lua -g plugins
 Send data to metadata
 
 ```sh
-$ lua src/infinity-cli.lua -g data:metadata -d "Why do programmers prefer dark mode? Because light attracts bugs!"
+$ lua src/exoctl-cli.lua -g data:metadata -d "Why do programmers prefer dark mode? Because light attracts bugs!"
 [ Metadata ]
 mime_type : text/plain; charset=us-ascii
 sha384 : 9b1ee54e14080dbbbd417950606de168500747257755564c6d67483d7d5d2361b3b5faed2d0e4535189c5464da0b0f6e

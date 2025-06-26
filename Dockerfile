@@ -7,6 +7,6 @@ COPY . /app/
 RUN apt-get update && \
     apt-get install -y lua5.4 liblua5.4-dev luarocks libssl-dev build-essential
 
-RUN luarocks-5.4 install --only-deps infinitycli-scm-1.rockspec
+RUN luarocks-5.4 install --only-deps exoctlcli-scm-1.rockspec
 
-CMD ["lua5.4", "/app/src/infinity-cli.lua", "-h"]
+CMD ["lua5.4", "/app/src/exoctl-cli.lua", "-h"]
